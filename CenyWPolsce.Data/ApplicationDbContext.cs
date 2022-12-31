@@ -10,18 +10,27 @@ namespace CenyWPolsce.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        private readonly string _dbPath;
-        public ApplicationDbContext()
+        public static string DatabasePath { get; set; }
+
+        public static string ConnectionString
         {
-            _dbPath = Environment.OSVersion.Platform switch
+            get => Environment.OSVersion.Platform switch
             {
-                PlatformID.Win32NT => "D:\\ceny.db3",
-                _ => "/storage/emulated/0/MojFolder/ceny.db3"
+                PlatformID.Win32NT => $"Data Source={DatabasePath}",
+                _ => $"Filename={DatabasePath}"
             };
         }
 
+        static ApplicationDbContext()
+        {
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                DatabasePath = "D:\\ceny.db3";
+            }
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={_dbPath}");
+            => options.UseSqlite(ConnectionString);
 
         public DbSet<Product> Products { get; set; }
     }
