@@ -12,6 +12,18 @@ namespace CenyWPolsce.Data
     {
         public static string DatabasePath { get; set; }
 
+        private static ApplicationDbContext _db;
+        public static ApplicationDbContext Instance
+        {
+            get
+            {
+                if (_db is null)
+                    _db = new();
+
+                return _db;
+            }
+        }
+
         public static string ConnectionString
         {
             get => Environment.OSVersion.Platform switch

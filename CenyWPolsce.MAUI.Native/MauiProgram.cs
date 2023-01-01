@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CenyWPolsce.Data;
+
+using Microsoft.Extensions.Logging;
 
 namespace CenyWPolsce.MAUI.Native
 {
@@ -18,6 +20,9 @@ namespace CenyWPolsce.MAUI.Native
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
+            //Rejestrowanie singletonów
+            builder.Services.AddSingleton<ApplicationDbContext>();
 
             return builder.Build();
         }

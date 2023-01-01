@@ -22,7 +22,7 @@ namespace CenyWPolsce.DatabaseCreator.Services
         }
 
         public List<Product> ReadFile()
-            => File.ReadLines(_filePath).Skip(1).Select(ReadCSVLine).Where(x => x is not null).ToList();
+            => File.ReadLines(_filePath).Skip(1).Select(ReadCSVLine).Where(x => x.Price > 0).ToList();
 
         private Product ReadCSVLine(string line)
         {
@@ -32,7 +32,7 @@ namespace CenyWPolsce.DatabaseCreator.Services
                 return new()
                 {
                     Date = new DateTime(Year, GetMonthNumber(arr[2]), 1),
-                    Name = arr[3],
+                    Name = arr[3].Replace("\"", String.Empty),
                     Price = Double.Parse(arr[6]),
                 };
             }
