@@ -69,5 +69,25 @@ namespace CenyWPolsce.MAUI.Native.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] dashboard_ico {
+            get {
+                object obj = ResourceManager.GetObject("dashboard_ico", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] products_ico {
+            get {
+                object obj = ResourceManager.GetObject("products_ico", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

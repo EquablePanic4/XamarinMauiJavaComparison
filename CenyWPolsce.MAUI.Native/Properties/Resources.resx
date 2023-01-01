@@ -121,4 +121,10 @@
   <data name="ceny" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ceny.db3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="dashboard_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dashboard_ico.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="products_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\products_ico.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

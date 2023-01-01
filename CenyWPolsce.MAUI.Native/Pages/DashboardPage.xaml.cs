@@ -6,6 +6,15 @@ public partial class DashboardPage : ContentPage
 {
     private readonly ApplicationDbContext _db = ApplicationDbContext.Instance;
 
+    #region Statystki
+
+    private readonly string _productsCount;
+    private readonly string _recordsCount;
+    private readonly string _highestRise;
+    private readonly string _highestDecrease;
+
+    #endregion
+
     public DashboardPage()
 	{
         //Przygotowywanie bazy danych...
@@ -22,15 +31,8 @@ public partial class DashboardPage : ContentPage
             File.WriteAllBytes(ApplicationDbContext.DatabasePath, Properties.Resources.ceny);
         }
 
-        InitializeComponent();
-	}
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-
-        //Statystki bazodanowe
-        RecordsCountLabel.Text = _db.Products.Count().ToString();
+        //Pobieranie niezbêdnych danych
+        _recordsCount = _db.Products.Count().ToString();
 
         //Najwiêkszy wzrost / spadek ceny
         var products = _db.Products.GroupBy(g => g.Name)
@@ -45,8 +47,16 @@ public partial class DashboardPage : ContentPage
                 Difference = (x.Last - x.First) / x.First * 100
             }).OrderBy(x => x.Difference).ToList();
 
-        ProductsNumberLabel.Text = products.Count.ToString();
-        HighestPriceRiseLabel.Text = products.MaxBy(x => x.Difference).Name.ToString();
-        HighestPriceDeacreaseLevel.Text = products.MinBy(x => x.Difference).Name.ToString();
+        _productsCount = products.Count.ToString();
+        _highestRise = products.MaxBy(x => x.Difference).Name.ToString();
+        _highestDecrease = products.MinBy(x => x.Difference).Name.ToString();
+
+        InitializeComponent();
+
+        //Statystki bazodanowe
+        RecordsCountLabel.Text = _recordsCount;
+        ProductsNumberLabel.Text = _productsCount;
+        HighestPriceRiseLabel.Text = _highestRise;
+        HighestPriceDeacreaseLevel.Text = _highestDecrease;
     }
 }

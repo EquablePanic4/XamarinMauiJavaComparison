@@ -9,11 +9,11 @@
         <ShellContent
             Title="Home"
             ContentTemplate="{DataTemplate local:DashboardPage}"
-            Icon="dotnet_bot.svg" />
+            Icon="dashboard.svg" IsEnabled="False" />
 
         <ShellContent
             Title="Produkty"
             ContentTemplate="{DataTemplate local:ProductsPage}"
-            Icon="dotnet_bot.svg" />
+            Icon="shopping_cart.svg" />
     </TabBar>
 </Shell>
