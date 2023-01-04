@@ -35,7 +35,7 @@
             Text="Ceny w poszczególnych okresach:"
             Margin="20, 0, 0, 0"
             FontAttributes="Bold" />
-        <ListView ItemsSource="{Binding Pricings}">
+        <!--<ListView ItemsSource="{Binding Pricings}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="mdl:ProductPricingModel">
                     <ViewCell>
@@ -59,6 +59,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
     </VerticalStackLayout>
 </ContentPage>
