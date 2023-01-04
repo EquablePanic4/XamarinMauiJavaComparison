@@ -1,4 +1,7 @@
-﻿namespace CenyWPolsce.MAUI.Native
+﻿using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+
+namespace CenyWPolsce.MAUI.Native
 {
     public partial class App : Application
     {
@@ -7,6 +10,13 @@
             InitializeComponent();
 
             MainPage = new AppShell();
+
+            LiveCharts.Configure(conf =>
+            {
+                conf.AddSkiaSharp();
+                conf.AddDefaultMappers();
+                conf.AddLightTheme();
+            });
         }
     }
 }

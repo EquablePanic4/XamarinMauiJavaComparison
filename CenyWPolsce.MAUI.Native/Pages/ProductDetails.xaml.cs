@@ -1,11 +1,20 @@
+using CenyWPolsce.Data;
+using CenyWPolsce.MAUI.Native.ViewModels;
+
 namespace CenyWPolsce.MAUI.Native.Pages;
 
 public partial class ProductDetails : ContentPage
 {
+	private  readonly ProductDetailsViewModel _ctx;
+
+	public string Name { get; set; }
+
 	public ProductDetails(string name)
 	{
 		InitializeComponent();
 
-		ProductName.Text = name;
+		_ctx = new();
+		this.BindingContext = _ctx;
+		_ctx.Initialize(name);
 	}
 }

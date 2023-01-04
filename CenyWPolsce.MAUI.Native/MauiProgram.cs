@@ -4,6 +4,8 @@ using CommunityToolkit.Maui;
 
 using Microsoft.Extensions.Logging;
 
+using SkiaSharp.Views.Maui.Controls.Hosting;
+
 namespace CenyWPolsce.MAUI.Native
 {
     public static class MauiProgram
@@ -12,6 +14,7 @@ namespace CenyWPolsce.MAUI.Native
         {
             var builder = MauiApp.CreateBuilder();
             builder
+                .UseSkiaSharp(true)
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
@@ -23,9 +26,6 @@ namespace CenyWPolsce.MAUI.Native
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
-            //Rejestrowanie singletonów
-            builder.Services.AddSingleton<ApplicationDbContext>();
 
             return builder.Build();
         }

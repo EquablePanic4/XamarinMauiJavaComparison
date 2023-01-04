@@ -1,5 +1,12 @@
 using CenyWPolsce.Data;
 
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.VisualElements;
+
+using SkiaSharp;
+
 namespace CenyWPolsce.MAUI.Native.Pages;
 
 public partial class DashboardPage : ContentPage
@@ -58,5 +65,22 @@ public partial class DashboardPage : ContentPage
         ProductsNumberLabel.Text = _productsCount;
         HighestPriceRiseLabel.Text = _highestRise;
         HighestPriceDeacreaseLevel.Text = _highestDecrease;
+
+        Chart.Series = new ISeries[]
+        {
+            new LineSeries<double>
+            {
+                Values = new double[] { 2, 1, 3, 5, 3, 4, 6 },
+                Fill = null
+            }
+        };
+
+        Chart.Title = new LabelVisual
+        {
+            Text = "My chart title",
+            TextSize = 25,
+            Padding = new LiveChartsCore.Drawing.Padding(15),
+            Paint = new SolidColorPaint(SKColors.DarkSlateGray)
+        };
     }
 }
