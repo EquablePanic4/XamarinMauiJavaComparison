@@ -13,8 +13,7 @@ public partial class ProductDetails : ContentPage
 	{
 		InitializeComponent();
 
-		_ctx = new();
+		_ctx = new(name);
 		this.BindingContext = _ctx;
-		_ctx.Initialize(name);
 	}
 }

@@ -3,32 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vms="clr-namespace:CenyWPolsce.MAUI.Native.ViewModels"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:dbo="clr-namespace:CenyWPolsce.Data.Tables;assembly=CenyWPolsce.Data"
+             xmlns:mdl="clr-namespace:CenyWPolsce.MAUI.Native.Models"
              x:Class="CenyWPolsce.MAUI.Native.Pages.ProductDetails"
+             x:DataType="vms:ProductDetailsViewModel"
              Title="Szczegóły produktu">
-    <ContentPage.BindingContext>
-        <vms:ProductDetailsViewModel />
-    </ContentPage.BindingContext>
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Padding="10" >
         <Label
                 Text="Wybrany produkt:"
                 FontAttributes="Bold" />
-        
+
         <Label
             Text="{Binding ProductName}"
             VerticalOptions="Center"
-            FontSize="24"
+            FontSize="18"
             HorizontalOptions="Center" />
 
         <Label
-                Text="Przebieg zmian cen:"
-                FontAttributes="Bold" />
+            Margin="20, 0, 0, 0"
+            Text="Przebieg zmian cen:"
+            FontAttributes="Bold" />
 
-        <Grid HeightRequest="200">
-            <lvc:CartesianChart Series="{Binding Series}" Title="{Binding ChartTitle}" />
+        <Grid
+            Margin="10, 2"
+            HeightRequest="200" >
+            <lvc:CartesianChart Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" />
         </Grid>
 
         <Label
-                Text="Ceny w poszczególnych okresach:"
-                FontAttributes="Bold" />
+            Text="Ceny w poszczególnych okresach:"
+            Margin="20, 0, 0, 0"
+            FontAttributes="Bold" />
+        <ListView ItemsSource="{Binding Pricings}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="mdl:ProductPricingModel">
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1"
+                                Grid.Row="1"
+                                Text="{Binding Month}" />
+
+                            <Label Grid.Column="1"
+                                Grid.Row="2"
+                                Text="{Binding Price}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentPage>

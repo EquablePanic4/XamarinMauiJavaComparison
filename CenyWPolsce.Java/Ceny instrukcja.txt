@@ -1,0 +1,2 @@
+Plik ceny.db musi znajdować się w lokalizacji:
+/storage/emulated/0/MojFolder/ceny.db

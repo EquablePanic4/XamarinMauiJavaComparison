@@ -27,6 +27,15 @@ namespace CenyWPolsce.MAUI.Native
 		builder.Logging.AddDebug();
 #endif
 
+            //Przygotowywanie bazy danych...
+            var appDir = FileSystem.Current.AppDataDirectory;
+            ApplicationDbContext.DatabasePath = Path.Combine(appDir, "ceny.db3");
+
+            if (!File.Exists(ApplicationDbContext.DatabasePath))
+            {
+                File.WriteAllBytes(ApplicationDbContext.DatabasePath, Properties.Resources.ceny);
+            }
+
             return builder.Build();
         }
     }

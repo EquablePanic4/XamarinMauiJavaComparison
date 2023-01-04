@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Equab\Desktop\Projekt mobilki\Blazor\Ceny\bin\Release\net5.0\browser-wasm\publish\</_PublishTargetUrl>
+    <History>True|2023-01-04T18:54:13.0477094Z;True|2023-01-04T19:35:49.8639609+01:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

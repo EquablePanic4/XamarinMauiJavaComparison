@@ -1,0 +1,47 @@
+﻿@page "/"
+
+@if (_produkty is not null)
+{
+    <h3>Statystyki</h3>
+    <div class="d-flex justify-content-around align-items-center flex-wrap">
+
+        @*Największy wzrost ceny od początku*@
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-header">Największy wzrost</div>
+            <div class="card-body">
+                <h5 class="card-title">@BiggestIncrease.Nazwa</h5>
+                <p class="card-text">@Math.Round(BiggestIncrease.Change, 2)%</p>
+            </div>
+        </div>
+
+        @*Największy spadek ceny od początku*@
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header">Największy spadek</div>
+            <div class="card-body">
+                <h5 class="card-title">@BiggestDecrease.Nazwa</h5>
+                <p class="card-text">@Math.Round(BiggestDecrease.Change, 2)%</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 18px;">Historia cen dla pojedynczego produktu</h3>
+    <div class="form-group">
+        <label>Wybierz produkt</label>
+        <div class="input-group">
+            <select @bind="productDetailsId" class="form-control">
+                <option selected disabled>Wybierz produkt z listy</option>
+                @foreach (var produkt in _produkty.Distinct().OrderBy(o => o.Nazwa))
+                {
+                    <option value="@produkt.Id">@produkt.Nazwa</option>
+                }
+            </select>
+            <div class="input-group-append">
+                <button @onclick="() => NavigateToProductDetails(productDetailsId)" class="btn btn-primary">Pokaż</button>
+            </div>
+        </div>
+        <small class="text-muted form-text">
+            Na liście znajdują się wszystkie produkty dostępne w naszej bazie, wybierz jeden aby zapoznać się
+            z historią jego cen.
+        </small>
+    </div>
+}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Liczba produktów w bazie:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/productNumberLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="19.05.12"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Liczba rekordów w bazie:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/allRecordsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="29.05.21"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="36sp"/>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Największy wzrost ceny:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/mostRiseLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:paddingVertical="5dp"
+            android:text="Wywóz śmieci"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chartGrow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="200dp" >
+
+        </com.github.mikephil.charting.charts.LineChart>
+
+        <Button
+            android:id="@+id/mostRiseBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zobacz" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Największy spadek ceny:"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/mostFallLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:paddingVertical="5dp"
+            android:text="Odtwarzacz DVD"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chartFall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="200dp" />
+
+        <Button
+            android:id="@+id/mostFallBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zobacz" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
